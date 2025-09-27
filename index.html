@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Security Portfolio — Shambhu Kapadi</title>
+  <meta name="description" content="Cybersecurity portfolio styled as SOC/HUD — interactive map, animated skills, certifications, case studies, projects, GitHub repos, and social links." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="bg-grid" aria-hidden>
+    <canvas id="netgrid"></canvas>
+  </div>
+
+  <div class="site">
+    <header>
+      <div class="brand">
+        <div class="logo">S</div>
+        <div>
+          <h1>Shambhu Kapadi</h1>
+          <div class="kicker">Cybersecurity • Threat Hunter • Red Team</div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:18px">
+        <nav class="desktop-nav">
+          <a href="#skills">SKILLS</a>
+          <a href="#certs">CERTS</a>
+          <a href="#cases">CASES</a>
+          <a href="#projects">PROJECTS</a>
+          <a href="#contact">CONTACT</a>
+        </nav>
+
+        <div class="social-icons" style="display:flex;gap:12px;align-items:center">
+          <a href="https://github.com/shambhu332" target="_blank" class="social-link" aria-label="GitHub">
+            <div class="social-icon">GH</div>
+          </a>
+          <a href="https://www.linkedin.com/in/shambhu-kapadi-3b675021b/" target="_blank" class="social-link" aria-label="LinkedIn">
+            <div class="social-icon">LI</div>
+          </a>
+          <a href="https://www.instagram.com/shambhu.kapadi/" target="_blank" class="social-link" aria-label="Instagram">
+            <div class="social-icon">IG</div>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="map-card panel" role="region" aria-label="Interactive threat map">
+          <canvas id="map" class="map-canvas"></canvas>
+          <div class="map-overlay">
+            <div style="position:absolute;left:14px;top:14px;font-family:'Fira Code';font-size:12px;color:var(--muted)">TERMINAL • SECURE</div>
+            <div style="position:absolute;right:14px;bottom:14px;font-family:'Fira Code';font-size:12px;color:var(--muted)">LIVE NODES • <span id="live-count">0</span></div>
+          </div>
+        </div>
+
+        <aside class="intro panel">
+          <div class="profile-container" style="display:flex;gap:16px;align-items:center;margin-bottom:18px">
+            <img src="./assets/me.png" alt="Shambhu Kapadi" class="profile-pic" />
+            <div>
+              <div class="eyebrow">DECRYPTED ID</div>
+              <h2 class="name">Shambhu Kapadi <span style="font-size:13px;color:var(--muted);font-family:'Fira Code'">// Security Ops</span></h2>
+            </div>
+          </div>
+
+          <div class="typewriter" id="typewriter"></div>
+<!-- Inside .intro panel -->
+<p class="desc">
+  I break networks and mobile apps to make them stronger. Specializing in Wi-Fi/Bluetooth exploitation, mobile app reverse engineering, network pivoting, and wireless red teaming.
+</p>
+          <div class="hero-ctas">
+            <button class="btn primary scanline" id="open-portfolio">ACCESS PORTFOLIO</button>
+            <button class="btn scanline urgent" id="secure-contact">INITIATE SECURE CONTACT</button>
+            <a href="./assets/resume.pdf" download="Alex_Rivera_Resume.pdf" class="btn scanline" style="background:rgba(57,255,20,0.06);color:var(--green);border:1px solid rgba(57,255,20,0.1)">DOWNLOAD RESUME</a>
+          </div>
+
+          <div style="margin-top:auto;display:flex;gap:10px;align-items:center">
+            <div class="kicker">Live Feed</div>
+            <div style="flex:1;height:8px;background:rgba(255,255,255,0.02);border-radius:20px;overflow:hidden">
+              <div id="livebar" style="height:100%;width:18%;background:linear-gradient(90deg,var(--cyan),rgba(0,229,255,0.4));transition:width 0.4s"></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <main>
+      <!-- Skills -->
+      <section id="skills" class="panel">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div>
+            <div class="kicker">CORE COMPETENCIES</div>
+            <h3 style="font-family:'Fira Code';margin:6px 0 0 0">Technical Skills & Expertise</h3>
+          </div>
+          <div class="muted">Hover or tap skills to animate</div>
+        </div>
+        <div class="skills-grid" id="skills-grid"></div>
+      </section>
+
+      <!-- Certifications -->
+      <section id="certs" class="panel">
+        <div class="kicker">CREDENTIALS</div>
+        <h3 style="font-family:'Fira Code';margin-top:6px">Certifications & Training</h3>
+        <div class="cert-strip" id="cert-strip" style="margin-top:12px"></div>
+      </section>
+
+      <!-- Cases -->
+      <section id="cases" class="panel">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div>
+            <div class="kicker">CASE FILES</div>
+            <h3 style="font-family:'Fira Code';margin:6px 0 0 0">Selected Engagements</h3>
+          </div>
+        </div>
+        <div class="cases-grid" id="cases-grid"></div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="panel">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div>
+            <div class="kicker">PROJECTS</div>
+            <h3 style="font-family:'Fira Code';margin:6px 0 0 0">Personal & Open Source</h3>
+          </div>
+          <div class="muted">Click any project to view details</div>
+        </div>
+        <div class="projects-grid" id="projects-grid"></div>
+      </section>
+
+      <!-- GitHub Repos (Auto-loaded) -->
+      <!-- <section id="github" class="panel">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div>
+            <div class="kicker">GITHUB REPOS</div>
+            <h3 style="font-family:'Fira Code';margin:6px 0 0 0">Auto-loaded from GitHub</h3>
+          </div>
+          <div class="muted" id="github-status">Loading...</div>
+        </div>
+        <div class="projects-grid" id="github-grid"></div>
+      </section> -->
+
+      <!-- Contact -->
+      <section id="contact" class="panel">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:18px">
+          <div class="contact-grid" style="width:100%">
+            <div class="form panel" style="padding:16px">
+              <div class="kicker">SECURE CHANNEL</div>
+              <h4 style="font-family:'Fira Code';margin-top:6px">Contact / Brief</h4>
+              <input placeholder="Your name" id="input-name" />
+              <input placeholder="Email or Signal handle" id="input-email" style="margin-top:8px" />
+              <textarea placeholder="Short summary or encrypted note" id="input-msg" style="margin-top:8px" rows="6"></textarea>
+              <button class="btn primary submit scanline" id="send-msg">SEND (ENCRYPT)</button>
+            </div>
+
+            <div class="panel" style="padding:16px;align-self:flex-start">
+              <div class="kicker">SECURITY STATUS</div>
+              <div style="font-family:'Fira Code';margin-top:8px">System Integrity: <strong id="sys-integrity">OK</strong></div>
+              <div style="margin-top:8px" class="muted">Last audit: <span id="last-audit">—</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Shambhu Kapadi. Built for SOC-grade portfolios.</div>
+    </footer>
+
+  </div>
+
+  <!-- Modal -->
+  <div id="project-modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <h3 id="modal-title" style="font-family:'Fira Code';color:var(--cyan)"></h3>
+      <p id="modal-desc" class="muted"></p>
+      <div id="modal-tags" class="tags" style="margin:16px 0"></div>
+      <div class="modal-actions">
+        <button id="modal-live" class="btn" style="margin-right:8px">VIEW LIVE</button>
+        <button id="modal-code" class="btn primary">VIEW CODE</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div id="cursor" class="cursor-underscore">_</div>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>
